@@ -146,7 +146,7 @@ grafico2
 grafico3 <- grafico2+ggtitle('Gráfico de dispersión temperatura máxima(MaxTemp) frente a temperatura mínima(MinTemp)')
 grafico3
 
-#ggsave(filename = "./figure/Ejercicio1.pdf", device = "pdf")
+ggsave(filename = "./figure/Ejercicio1.pdf", device = "pdf")
 ```
 
 ### **Ejercicio 2**
@@ -158,7 +158,19 @@ grafico3
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio2.pdf``.
 
 ```{r Solucion ejercicio 2}
+grafico <- ggplot(ds, aes(x = Temp9am, y = Pressure9am))
+grafico+geom_point()
 
+#Se observa mejor con la representación del color.
+grafico1 <- ggplot(ds, aes(x = Temp9am, y = Pressure9am, colour=RainToday))+geom_point()
+grafico1
+grafico2 <- ggplot(ds, aes(x = Temp9am, y = Pressure9am, shape=RainToday))+geom_point()
+grafico2
+
+grafico3 <- grafico1 + ggtitle('Gráfico que representa la presión frente a la temperatura a la misma hora del día, 9 de la mañana')
+grafico3
+
+ggsave(filename = "./figure/Ejercicio2.pdf", device = "pdf")
 ```
 
 ### **Ejercicio 3**
